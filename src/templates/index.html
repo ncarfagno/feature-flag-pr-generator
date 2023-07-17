@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Pull Request App</title>
+</head>
+<body>
+    <h1>GitHub Pull Request App</h1>
+
+    <form method="post">
+        <label for="username">GitHub Username:</label>
+        <input type="text" name="username" id="username" value="{{ username }}" required>
+        <br>
+        <label for="token">GitHub Token:</label>
+        <input type="text" name="token" id="token" value="{{ token }}" required>
+        <br>
+        <label for="repository">Repository:</label>
+        <input type="text" name="repository" id="repository" value="{{ repository }}" required>
+        <br>
+        <label for="title">Pull Request Title:</label>
+        <input type="text" name="title" id="title" value="{{ title }}" required>
+        <br>
+        <label for="body">Pull Request Body:</label>
+        <textarea name="body" id="body" required>{{ body }}</textarea>
+        <br>
+        <label for="head">Branch with Changes:</label>
+        <input type="text" name="head" id="head" value="{{ head }}" required>
+        <br>
+        <label for="base">Base Branch:</label>
+        <input type="text" name="base" id="base" value="{{ base }}" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+</html>
